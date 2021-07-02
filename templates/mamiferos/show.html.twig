@@ -3,23 +3,26 @@
 {% block title %}Mamífero {{ animal }}!{% endblock %}
 
 {% block body %}
-        
-    <h1>Mamíferos</h1>
-    Esta é a página de detalhe do animal {{ animal }}.
-
-
-    {% if animal == "Gato" %}
-        <br>
-        Nossa, um <strong>Gato</strong>!
-    {% endif %}
-    <ul>
-    {% for resposta in respostas %}
-    <li>
-    {{ resposta }}
-    </li>
-    {% endfor %}
-    </ul>
-
-    <h2> {{ respostas|last }}</h2>
-
+<div class="container py-4">
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Mamíferos</h1>
+            <p class="col-md-8 fs-4">Esta é a página de detalhe do animal {{ animal }}.</p>
+            <p class="col-md-8 fs-4">
+            {% if animal == "Gato" %}
+                Nossa, um <strong>Gato</strong>!
+            {% endif %}
+            </p>
+            <p><a class="btn btn-primary btn-lg" href="/#mamiferos" role="button">Voltar Home</a></p>
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                    Esta lista contém {% if respostas|length > 2 %}{{ respostas|length }} itens.{% endif %}
+                </a>
+                {% for resposta in respostas %}    
+                <a href="#" class="list-group-item list-group-item-action">{{ resposta }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

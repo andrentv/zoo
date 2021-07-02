@@ -5,7 +5,6 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-//use Symfony\Flex\Response as FlexResponse;
 
 class FirstController extends AbstractController
 {
@@ -15,7 +14,7 @@ class FirstController extends AbstractController
 
     public function homepage()
     {
-        return new Response('Olá, Mundo');
+        return $this->render('mamiferos/homepage.html.twig');
     }
 
     /**
@@ -30,7 +29,10 @@ class FirstController extends AbstractController
             'Esta é a terceira resposta',
             'Esta é a quarta resposta',
             'Esta é a quinta resposta',
+            'Esta é a sexta resposta',
+            'Esta é a sétima resposta',
         ];
+        dump($respostas, $this); // se colocar (exit;) termina o sistema 
         
         return $this->render('mamiferos/show.html.twig', [
             'animal' => ucwords( str_replace('-', ' ', $slug)),
