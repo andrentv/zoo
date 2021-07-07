@@ -9,9 +9,9 @@
 import './styles/app.css';
 
 // start the Stimulus application
-// import './bootstrap';
+import './bootstrap';
 
-
+import $ from 'jquery';
 /*
 Get click and show likes
 */
