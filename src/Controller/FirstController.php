@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Twig\Environment;
 
 class FirstController extends AbstractController
 {
@@ -12,9 +13,12 @@ class FirstController extends AbstractController
      *  @Route("/", name="app_home_page")
      */
 
-    public function homepage()
+    public function homepage(Environment $twigEnvironment)
     {
-        return $this->render('mamiferos/homepage.html.twig');
+        $html = $twigEnvironment->render('mamiferos/homepage.html.twig');
+        return new Response($html);
+        // dump($html); exit;
+        // return $this->render('mamiferos/homepage.html.twig');
     }
 
     /**
